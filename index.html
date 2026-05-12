@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deepthi Gift Page</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 360px;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      color: white;
+    }
+
+    .main {
+      background: #2196F3;
+    }
+
+    .yes {
+      background: #4CAF50;
+    }
+
+    .no {
+      background: #f44336;
+    }
+
+    .back-btn {
+      background: #666;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message-page {
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .transaction {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f7f7f7;
+      border-radius: 12px;
+      font-size: 15px;
+    }
+
+    .sarcastic-box {
+      margin-top: 20px;
+      background: #fff3cd;
+      padding: 18px;
+      border-radius: 12px;
+      line-height: 1.6;
+    }
+
+    h2 {
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- First Page -->
+    <div id="firstPage">
+      <h2>Select an Option</h2>
+
+      <button class="main" onclick="showDeepuOptions()">Deepu</button>
+      <button class="main" onclick="showOthersPage()">Others</button>
+    </div>
+
+    <!-- Deepu Page -->
+    <div id="deepuPage" class="hidden">
+      <h2>Do you need a wedding gift?</h2>
+
+      <button class="yes" onclick="showGiftPage()">Yes</button>
+      <button class="no" onclick="showNoPage()">No</button>
+
+      <br>
+      <button class="back-btn" onclick="goBackToHome()">Back</button>
+    </div>
+
+    <!-- No Page -->
+    <div id="noPage" class="hidden">
+
+      <div class="sarcastic-box">
+        😌 Even if you say no, I'll still give the gift.<br><br>
+
+        Some people wait to be asked...<br>
+        and some people just have the sense to give one anyway. 💅✨
+      </div>
+
+      <button class="yes" onclick="showGiftPage()">Okay Fine 😅</button>
+
+      <br>
+      <button class="back-btn" onclick="backToDeepu()">Back</button>
+
+    </div>
+
+    <!-- Others Page -->
+    <div id="othersPage" class="hidden">
+
+      <div class="sarcastic-box">
+        😌 Don't worry... the money you sent already reached Deepthi.<br><br>
+
+        If you still don't trust me, please click the button below
+        to see the transaction details. 💸
+      </div>
+
+      <button class="yes" onclick="showGiftPage()">
+        I Still Don't Trust You 👀
+      </button>
+
+      <br>
+      <button class="back-btn" onclick="goBackToHome()">Back</button>
+
+    </div>
+
+    <!-- Final Greeting Page -->
+    <div id="giftPage" class="hidden message-page">
+
+      <h2>💐 Dear Deepthi,</h2>
+
+      <p>
+        Wishing you a lifetime filled with love, laughter,
+        and beautiful memories as you begin this new chapter together.
+        Congratulations on your wedding and best wishes
+        for a happy married life ahead! 💐✨
+      </p>
+
+      <div class="transaction">
+        <b>PhonePe Transaction</b><br><br>
+
+        Transaction ID: TXN784512963<br>
+        Date: 12 May 2026<br>
+        Time: 07:45 PM<br>
+        Amount: ₹7000
+      </div>
+
+      <br>
+      <button class="back-btn" onclick="goBackToHome()">Back</button>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function showDeepuOptions() {
+      document.getElementById("firstPage").classList.add("hidden");
+      document.getElementById("deepuPage").classList.remove("hidden");
+    }
+
+    function showOthersPage() {
+      document.getElementById("firstPage").classList.add("hidden");
+      document.getElementById("othersPage").classList.remove("hidden");
+    }
+
+    function showNoPage() {
+      document.getElementById("deepuPage").classList.add("hidden");
+      document.getElementById("noPage").classList.remove("hidden");
+    }
+
+    function showGiftPage() {
+      document.getElementById("deepuPage").classList.add("hidden");
+      document.getElementById("noPage").classList.add("hidden");
+      document.getElementById("othersPage").classList.add("hidden");
+
+      document.getElementById("giftPage").classList.remove("hidden");
+    }
+
+    function goBackToHome() {
+
+      document.getElementById("deepuPage").classList.add("hidden");
+      document.getElementById("noPage").classList.add("hidden");
+      document.getElementById("othersPage").classList.add("hidden");
+      document.getElementById("giftPage").classList.add("hidden");
+
+      document.getElementById("firstPage").classList.remove("hidden");
+    }
+
+    function backToDeepu() {
+
+      document.getElementById("noPage").classList.add("hidden");
+      document.getElementById("deepuPage").classList.remove("hidden");
+    }
+
+  </script>
+
+</body>
+</html>
